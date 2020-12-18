@@ -1,0 +1,9 @@
+package exceptions;
+
+public class FileNotValid extends Exception{
+
+	public FileNotValid(String message) {
+		super(message);
+	}
+	
+}

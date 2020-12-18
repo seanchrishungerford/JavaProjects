@@ -1,0 +1,23 @@
+package com.model;
+
+public class Registration {
+
+	private String uname;
+	private String city;
+	private String email;
+	public Registration(String uname, String city, String email) {
+		super();
+		this.uname = uname;
+		this.city = city;
+		this.email = email;
+	}
+	public Registration() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,14 @@
+package mypack;
+
+import java.util.Comparator;
+
+public class IntComparator implements Comparator<Integer>{
+	
+	@Override
+	public int compare(Integer o1, Integer o2) {
+		// TODO Auto-generated method stub
+		return o1.intValue()-o2.intValue();
+	}
+
+	
+}

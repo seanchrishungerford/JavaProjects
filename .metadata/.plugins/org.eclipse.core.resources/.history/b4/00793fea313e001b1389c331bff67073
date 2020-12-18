@@ -1,0 +1,53 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.dao.userDao;
+import com.model.Registration;
+
+public class UserService implements userDao{
+	String sql = "insert into EMPLOYEE(EMPNAME,EMAIL,CITY)values(?,?,?)";
+	public void registration(Registration reg) {
+		
+		Connection conn = null;
+		try {
+		
+		Class.forName("org.h2.Driver");
+		conn = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test","sa",""); // establish the connection
+
+		PreparedStatement pst = conn.prepareStatement(sql);
+		pst.setString(1, reg.getUname());
+		pst.setString(2, reg.getEmail());
+		pst.setString(3, reg.getCity());
+		
+		int i = pst.executeUpdate();
+		if (i> 0) {
+			System.out.println("user is registered!");
+		}
+		
+		
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} // load the driver 
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	@Override
+	public void login() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
